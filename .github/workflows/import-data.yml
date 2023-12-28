@@ -2,6 +2,7 @@ on:
   schedule:
     - cron:  '45 17 * * *'
 
+
 jobs:
   import-data:
     runs-on: ubuntu-latest
@@ -15,6 +16,14 @@ jobs:
           packages: |
             any::tidyverse
             any::googlesheets4
+
+      - name: Install remotes
+        run: |
+          Rscript -e "install.packages('devtools', repos='https://ftp.belnet.be/mirror/CRAN')"
+
+      - name: Install EasyPubmed from Github
+        run: |
+          Rscript -e "devtools::install_github("dami82/easyPubMed")"
 
       - name: Check out repository
         uses: actions/checkout@v3
