@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '45 17 * * *'
+    - cron:  '36 18 * * *'
 
 
 jobs:
@@ -15,11 +15,8 @@ jobs:
         with:
           packages: |
             any::tidyverse
-            any::googlesheets4
-
-      - name: Install remotes
-        run: |
-          Rscript -e "install.packages('devtools', repos='https://ftp.belnet.be/mirror/CRAN')"
+            any::devtools
+         
 
       - name: Install EasyPubmed from Github
         run: |
