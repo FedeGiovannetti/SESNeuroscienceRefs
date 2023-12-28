@@ -1,4 +1,6 @@
 
+devtools::install_github("dami82/easyPubMed")
+
 pubmed_query <- function(query){
   
   # El parámetro query deve ser un character con formato de query al 

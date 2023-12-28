@@ -1,0 +1,10 @@
+name: sesneurosciencerefs
+title:
+username: fedegiovannetti
+account: fedegiovannetti
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10847477
+bundleId: 8090572
+url: https://fedegiovannetti.shinyapps.io/sesneurosciencerefs/
+version: 1

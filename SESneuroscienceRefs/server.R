@@ -7,13 +7,15 @@ library(openxlsx)
 # Define server logic required to draw a histogram ----
 server <- function(input,output, session) {
   
+  dataset = read.csv(url("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed.csv")) 
+  
+  
 # Main plot
   
   output$distPlot <- renderPlot({
     
-    dataset = read.csv("Data/dataset_pubmed.csv") 
+    # dataset = read.csv("Data/dataset_pubmed.csv") 
     
-
     breakstart = seq(min(dataset$year), max(dataset$year), by = input$interval)
     breakend = breakstart + input$interval  
     x_label = paste(breakstart, "-", breakend - 1)
@@ -50,7 +52,7 @@ server <- function(input,output, session) {
   
 # Downloader
   
-  datacsv <- read.csv("Data/dataset_pubmed.csv")
+  # datacsv <- read.csv("Data/dataset_pubmed.csv")
   # dataxlsx <- openxlsx::read.xlsx("Data/dataset_pubmed.xlsx")
   
   output$downloadcsv <- downloadHandler(
@@ -58,7 +60,7 @@ server <- function(input,output, session) {
       paste("dataset_pubmed-", Sys.Date(), ".csv", sep="")
     },
     content = function(file) {
-      write.csv(datacsv, file)
+      write.csv(dataset, file)
     }
   )
   
@@ -67,7 +69,7 @@ server <- function(input,output, session) {
       paste("dataset_pubmed-", Sys.Date(), ".xlsx", sep="")
     },
     content = function(file) {
-      openxlsx::write.xlsx(datacsv, file)
+      openxlsx::write.xlsx(dataset, file)
     }
   )
   
