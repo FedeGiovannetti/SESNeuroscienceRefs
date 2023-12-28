@@ -1,5 +1,5 @@
 
-devtools::install_github("dami82/easyPubMed")
+#devtools::install_github("dami82/easyPubMed")
 
 pubmed_query <- function(query){
   
