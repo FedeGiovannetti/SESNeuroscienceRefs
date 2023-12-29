@@ -13,8 +13,17 @@ ui <- fluidPage(
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
     
+    
+    
     # Sidebar panel for inputs ----
     sidebarPanel(
+      
+      
+    selectInput(inputId = "query",
+                label = "Query:",
+                c("((SES) OR (poverty)) AND (neuroscience)",
+                  "((SES) OR (poverty)) AND (brain)")),
+      
     # #   
     #   # Input: Slider for the number of bins ----
     sliderInput(inputId = "interval",

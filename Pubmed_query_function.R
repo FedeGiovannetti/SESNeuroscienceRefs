@@ -3,8 +3,8 @@
 
 pubmed_query <- function(query){
   
-  # El parámetro query deve ser un character con formato de query al 
-  # estilo de pubmed (e.g. "(neuroscience) AND (poverty)")
+  # Parameter description:
+  # query= PubMed research query (e.g. "(neuroscience) AND (poverty)")
   
   require(tidyverse)
   require(easyPubMed)
@@ -20,11 +20,13 @@ pubmed_query <- function(query){
   
   epm_dataset <- epm_dataset %>%  
     
-    mutate(across(everything(), ~if_else(nchar(.x) > 32766, NA, .x)))  
+    mutate(across(everything(), ~if_else(nchar(.x) > 32766, NA, .x))) %>% 
+    select(pmid, title, authors, abstract, year, month, day, journal, everything())
     # select(-coi)
   
   
-  write.csv(epm_dataset, "SESneuroscienceRefs/Data/dataset_pubmed.csv", row.names = F)
+  write.csv(epm_dataset, paste("SESneuroscienceRefs/Data/dataset_pubmed_", query, ".csv"),
+            row.names = F)
   
   # return(epm_dataset)
 }
