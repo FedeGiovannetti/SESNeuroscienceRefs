@@ -13,8 +13,10 @@ server <- function(input,output, session) {
 
   
   dataset <- reactive({
-    path <- paste("Data/dataset_pubmed_", input$query, ".csv")
-    read.csv(path)
+    path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed_%20",
+                  gsub(" ", "%20", input$query) ,
+                  "%20.csv", sep = "")
+    read.csv(url(path))
   })
   
 # Main plot
