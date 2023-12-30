@@ -15,6 +15,13 @@ server <- function(input,output, session) {
     read.csv(url(path))
   })
   
+  reference <- reactive({
+    path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/references_pubmed_%20",
+                  gsub(" ", "%20", input$query) ,
+                  "%20.csv", sep = "")
+    read.csv(url(path))
+  })
+  
 # Main plot
   
   output$distPlot <- renderPlot({
@@ -77,8 +84,8 @@ server <- function(input,output, session) {
   
 # Latest publications references
   
-  output$table <- renderTable(read.csv(paste("Data/references_pubmed_", input$query, ".csv")))
-  
+  # output$table <- renderTable(read.csv(paste("Data/references_pubmed_", input$query, ".csv")))
+  output$table <- renderTable(reference())
   
 }
   
