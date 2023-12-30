@@ -11,7 +11,7 @@ ui <- fluidPage(
   titlePanel("PubMed queries for SES and Neuroscience publications"),
   
   markdown("The main objective of `SESNeuroscienceRefs` is to provide updated information on
-    recent scholar publications related to the field of SES and Neuroscience studies.
+    recent scholar publications related to the field of SES and Neuroscience studies.\n
     Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information."),
   
   # p("The main objective of SESNeuroscienceRefs is to provide updated information on
