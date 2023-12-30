@@ -8,7 +8,15 @@ library(shiny)
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("PubMed query for SES and Neuroscience references"),
+  titlePanel("PubMed queries for SES and Neuroscience publications"),
+  
+  markdown("The main objective of `SESNeuroscienceRefs` is to provide updated information on
+    recent scholar publications related to the field of SES and Neuroscience studies.
+    Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information."),
+  
+  # p("The main objective of SESNeuroscienceRefs is to provide updated information on
+  #   recent scholar publications related to the field of SES and Neuroscience studies.
+  #   Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information."),
   
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
