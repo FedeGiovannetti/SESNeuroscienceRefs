@@ -8,10 +8,6 @@ library(openxlsx)
 server <- function(input,output, session) {
   
   
-  
-  # dataset = read.csv(url("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed.csv"))
-
-  
   dataset <- reactive({
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed_%20",
                   gsub(" ", "%20", input$query) ,
@@ -58,7 +54,8 @@ server <- function(input,output, session) {
             plot.subtitle = element_text(size = 20))
     
   })
-  
+
+# Dataset downloaders 
   
   output$downloadcsv <- downloadHandler(
     filename = function() {
@@ -78,6 +75,10 @@ server <- function(input,output, session) {
     }
   )
   
-
+# Latest publications references
+  
+  output$table <- renderTable(read.csv(paste("Data/references_pubmed_", input$query, ".csv")))
+  
+  
 }
   

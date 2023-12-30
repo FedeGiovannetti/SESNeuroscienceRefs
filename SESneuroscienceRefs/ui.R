@@ -52,10 +52,24 @@ ui <- fluidPage(
     
     ),
     
+    
+    
     # Main panel for displaying outputs ----
     mainPanel(
+      
+## Main Plot
+      
       plotOutput(outputId = "distPlot",
-                 height = "70vh")
+                 height = "70vh"),
+      
+## Table with latest publications references
+
+      h3("Latest publications\n"),
+      p(" "),
+      
+      tableOutput("table")
+      
+
       
       
       
