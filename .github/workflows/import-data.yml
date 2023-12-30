@@ -1,8 +1,6 @@
 on:
-  schedule:
-    - cron: '0 03 * * *'
-    
-    
+  push:
+    branches: main
 
 jobs:
   import-data:
