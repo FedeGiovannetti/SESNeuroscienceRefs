@@ -10,14 +10,14 @@ server <- function(input,output, session) {
   
   dataset <- reactive({
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed_%20",
-                  gsub(" ", "%20", input$query) ,
+                  gsub(" ", "%20", gsub('""', '', input$query)) ,
                   "%20.csv", sep = "")
     read.csv(url(path))
   })
   
   reference <- reactive({
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/references_pubmed_%20",
-                  gsub(" ", "%20", input$query) ,
+                  gsub(" ", "%20", gsub('""', '', input$query)) ,
                   "%20.csv", sep = "")
     read.csv(url(path))
   })

@@ -3,8 +3,8 @@
 
 query_dict = list(
   
-  "(('socioeconomic status') OR (poverty)) AND (neuroscience)",
-  "(('socioeconomic status') OR (poverty)) AND (brain)"
+  '(("socioeconomic status") OR (poverty)) AND (neuroscience)',
+  '(("socioeconomic status") OR (poverty)) AND (brain)'
   
 )
 
