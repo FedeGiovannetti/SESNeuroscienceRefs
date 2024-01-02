@@ -103,7 +103,7 @@ server <- function(input,output, session) {
 
     
     filename = function() {
-      paste("SESNeuroscienceRefs", gsub('\\', '', input$query), Sys.Date(), input$plotextension, sep="")
+      paste("SESNeuroscienceRefs", gsub('"', '', input$query), Sys.Date(), input$plotextension, sep="")
     },
     content = function(file) {
       

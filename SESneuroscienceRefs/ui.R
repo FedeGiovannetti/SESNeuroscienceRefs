@@ -46,6 +46,8 @@ ui <- fluidPage(
     
 
     ## Dataset download    
+    
+    p(" \nDownloads"),  
 
     
     downloadButton(outputId = "downloaddata", icon = NULL, class = "butt",
