@@ -8,6 +8,7 @@ library(openxlsx)
 
 server <- function(input,output, session) {
   
+  # version <- "v0.1.0",
   
   dataset <- reactive({
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed_%20",

@@ -5,8 +5,10 @@ source("query_dictionary.R")
 
 
 
+
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
+  
   
   tags$style(type = "text/css", ".irs-grid-pol.small {height: 0px;}"), ## Remove intermediate breaks in sliderInput
   
@@ -108,9 +110,14 @@ ui <- fluidPage(
                   ".csv",
                   ".xlsx"
                 ),
-                selected = "Please select a file extension")
+                selected = "Please select a file extension"),
+    
+    
+    h6("v0.1.0"),
+    h6("Please cite as: ")
 
   ),
+  
 
     
     
@@ -145,7 +152,7 @@ ui <- fluidPage(
   
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "dark_mode.css")
-  )
+  ),
   
   
   
