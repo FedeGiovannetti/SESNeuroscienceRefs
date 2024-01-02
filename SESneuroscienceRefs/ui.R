@@ -1,6 +1,7 @@
 
 
 library(shiny)
+source("query_dictionary.R")
 
 
 
@@ -29,8 +30,9 @@ ui <- fluidPage(
       
     selectInput(inputId = "query",
                 label = "Query:",
-                c("((SES) OR (poverty)) AND (neuroscience)",
-                  "((SES) OR (poverty)) AND (brain)")),
+                # c("((SES) OR (poverty)) AND (neuroscience)",
+                #   "((SES) OR (poverty)) AND (brain)")),
+                (query_dict)),
       
     # #   
     #   # Input: Slider for the number of bins ----
