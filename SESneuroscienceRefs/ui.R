@@ -8,6 +8,8 @@ source("query_dictionary.R")
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
   
+  tags$style(type = "text/css", ".irs-grid-pol.small {height: 0px;}"), ## Remove intermediate breaks in sliderInput
+  
   # App title ----
   titlePanel("PubMed queries for SES and Neuroscience publications"),
   

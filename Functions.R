@@ -54,6 +54,7 @@ reference_table <- function(query){
                                     format = "text", style = "apa",))) %>% 
     select(Reference, doi, Date)
   
+  
   write.csv(references, paste("SESneuroscienceRefs/Data/references_pubmed_",
                               gsub('"', '', gsub('\\*','',query)), # Removing quotation marks inside the query for better file naming
                               ".csv"),
