@@ -30,8 +30,6 @@ ui <- fluidPage(
       
     selectInput(inputId = "query",
                 label = "Query:",
-                # c("((SES) OR (poverty)) AND (neuroscience)",
-                #   "((SES) OR (poverty)) AND (brain)")),
                 (query_dict)),
       
     # #   

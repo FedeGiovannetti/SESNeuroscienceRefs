@@ -11,14 +11,14 @@ server <- function(input,output, session) {
   
   dataset <- reactive({
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed_%20",
-                  gsub(" ", "%20", gsub('"', '', input$query)) ,
+                  gsub(" ", "%20", gsub('"', '', gsub('*', '', gsub('*', '', input$query)))) ,
                   "%20.csv", sep = "")
     read.csv(url(path))
   })
   
   reference <- reactive({
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/references_pubmed_%20",
-                  gsub(" ", "%20", gsub('""', '', input$query)) ,
+                  gsub(" ", "%20", gsub('"', '', gsub('*', '', gsub('*', '', input$query)))) ,
                   "%20.csv", sep = "")
     read.csv(url(path))
   })
@@ -29,7 +29,7 @@ server <- function(input,output, session) {
     
     
     filename = function() {
-      paste("dataset_pubmed-", input$query, Sys.Date(), input$dataextension, sep="")
+      paste("dataset_pubmed-", gsub('*', '', input$query), Sys.Date(), input$dataextension, sep="")
     },
     content = function(file) {
       
@@ -102,7 +102,7 @@ server <- function(input,output, session) {
 
     
     filename = function() {
-      paste("SESNeuroscienceRefs", input$query, Sys.Date(), input$plotextension, sep="")
+      paste("SESNeuroscienceRefs", gsub('*', '', input$query), Sys.Date(), input$plotextension, sep="")
     },
     content = function(file) {
       
@@ -137,11 +137,8 @@ server <- function(input,output, session) {
   
 
 
-
-  
 # Latest publications references
   
-  # output$table <- renderTable(read.csv(paste("Data/references_pubmed_", input$query, ".csv")))
   output$table <- renderTable(reference())
   
 }

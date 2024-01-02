@@ -26,7 +26,7 @@ pubmed_query <- function(query){
   
   
   write.csv(epm_dataset, paste("SESneuroscienceRefs/Data/dataset_pubmed_",
-                               gsub('"', '', query), # Removing quotation marks inside the query for better file naming
+                               gsub('"', '', gsub('\\*','',query)), # Removing quotation marks inside the query for better file naming
                                ".csv"),
             row.names = F)
   
@@ -43,7 +43,7 @@ reference_table <- function(query){
   require(tidyverse)
   
   dataset = read.csv(paste("SESneuroscienceRefs/Data/dataset_pubmed_",
-                           gsub('"', '', query), # Removing quotation marks inside the query for better file naming
+                           gsub('"', '', gsub('\\*','',query)), # Removing quotation marks inside the query for better file naming
                            ".csv"))
   
   references = dataset %>% 
@@ -55,7 +55,7 @@ reference_table <- function(query){
     select(Reference, doi, Date)
   
   write.csv(references, paste("SESneuroscienceRefs/Data/references_pubmed_",
-                              gsub('"', '', query), # Removing quotation marks inside the query for better file naming
+                              gsub('"', '', gsub('\\*','',query)), # Removing quotation marks inside the query for better file naming
                               ".csv"),
             row.names = F)
   
