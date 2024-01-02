@@ -42,25 +42,78 @@ ui <- fluidPage(
                 max = 10,
                 value = 5),
     
-    p("Download the complete list of references in the preferred format:"),
+
+    ## Dataset download    
+
     
-    downloadButton(outputId = "downloadcsv", icon = NULL, class = "butt",
+    downloadButton(outputId = "downloaddata", icon = NULL, class = "butt",
                    label = tagList(
-                     tags$span(".csv",
+                     tags$span("Download complete dataset",
                                style = "font-weight: bold"),
                      tags$head(tags$style(".butt{background:#2bc37f;} .butt{border-color:#FFFFFF} .butt{color: #FFFFFF;}"))
                    )
     ),
     
-    downloadButton(outputId = "downloadxlsx", icon = NULL, class = "butt",
+    selectInput(inputId = "dataextension",
+                label = "",
+                c("Please select a file extension",
+                  ".csv",
+                  ".xlsx"
+                ),
+                selected = "Please select a file extension"),
+    
+
+    
+    ## Plot download
+    
+    p("\n "),  
+    
+
+      
+      downloadButton(outputId = "downloadplot", icon = NULL, class = "butt",
+                     label = tagList(
+                       tags$span("Download plot",
+                                 style = "font-weight: bold"),
+                       tags$head(tags$style(".butt{background:#2bc37f;} .butt{border-color:#FFFFFF} .butt{color: #FFFFFF;}"))
+                     )
+      ),
+
+      selectInput(inputId = "plotextension",
+                  label = "",
+                  c("Please select a file extension",
+                    ".png",
+                    ".svg",
+                    ".pdf"
+                    ),
+                  selected = "Please select a file extension"),
+    
+
+    
+    ## Plot data download
+    
+    p("\n "),
+
+    
+    downloadButton(outputId = "downloadplotdata", icon = NULL, class = "butt",
                    label = tagList(
-                     tags$span(".xlsx",
+                     tags$span("Download plot data",
                                style = "font-weight: bold"),
                      tags$head(tags$style(".butt{background:#2bc37f;} .butt{border-color:#FFFFFF} .butt{color: #FFFFFF;}"))
                    )
-    )
-    
     ),
+
+    selectInput(inputId = "plotdataextension",
+                label = "",
+                c("Please select a file extension",
+                  ".csv",
+                  ".xlsx"
+                ),
+                selected = "Please select a file extension")
+
+  ),
+
+    
+    
     
     
     
@@ -71,6 +124,8 @@ ui <- fluidPage(
       
       plotOutput(outputId = "distPlot",
                  height = "70vh"),
+      
+
       
 ## Table with latest publications references
 
