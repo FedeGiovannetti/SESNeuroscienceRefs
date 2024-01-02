@@ -9,11 +9,13 @@ source("query_dictionary.R")
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
   
+  tags$head(tags$link(rel = "shortcut icon", href = "shortcut.ico")),
   
   tags$style(type = "text/css", ".irs-grid-pol.small {height: 0px;}"), ## Remove intermediate breaks in sliderInput
   
   # App title ----
-  titlePanel("PubMed queries for SES and Neuroscience publications"),
+  titlePanel("SESNeuroscienceRefs"),
+  h4("A Web-App for literature exploration in SES, poverty and neuroscience research"),
   
   markdown("The main objective of `SESNeuroscienceRefs` is to provide updated information on
     recent scholar publications related to the field of SES and Neuroscience studies.\n
