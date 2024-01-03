@@ -1,4 +1,5 @@
 # SESNeuroscienceRefs
+### A Web-App for literature exploration in SES, poverty and neuroscience research
 
 SESNeuroscienceRefs is a web app hosted at http://fedegiovannetti.shinyapps.io/sesneurosciencerefs and developed in R with {shiny}. It's main objetive is to provide updated information on recent scholar publications related to the field of SES and Neuroscience studies. For now, it only includes results obtained from Pubmed by introducing two specific queries. But future versions may include other scholar databases.
 
