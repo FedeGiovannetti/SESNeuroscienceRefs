@@ -15,6 +15,5 @@ The main features of SESNeuroscienceRefs include
 
 ## Packages
 
-SESNeuroscienceRefs uses {shiny}, {EasyPubMed}, {Tidyverse}, {XML} and {openxlsx}. Future versions of this repository will include proper documentation of the specific use of each package.
-
+SESNeuroscienceRefs uses {shiny} for the app development; {EasyPubMed} to query PubMed database; {XML} to handle PubMed's records; {Tidyverse} for data cleaning and plotting; and {openxlsx} to handle downloads in xlsx format. 
 
