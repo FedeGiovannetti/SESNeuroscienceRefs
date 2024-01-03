@@ -9,7 +9,7 @@ source("query_dictionary.R")
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
   
-  tags$head(tags$link(rel = "shortcut icon", href = "shortcut.ico")),
+  tags$head(tags$link(rel = "shortcut icon", href = "SESneuroscienceRefs/www/favicon.ico")),
   
   tags$style(type = "text/css", ".irs-grid-pol.small {height: 0px;}"), ## Remove intermediate breaks in sliderInput
   
@@ -17,9 +17,11 @@ ui <- fluidPage(
   titlePanel("SESNeuroscienceRefs"),
   h4("A Web-App for literature exploration in SES, poverty and neuroscience research"),
   
-  markdown("The main objective of `SESNeuroscienceRefs` is to provide updated information on
-    recent scholar publications related to the field of SES and Neuroscience studies.\n
-    Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information."),
+  markdown("`SESNeuroscienceRefs` provides updated information on
+    recent scholar publications related to the field of SES and Neuroscience studies. <br>
+    For now, it only includes results obtained from Pubmed by introducing two specific queries. 
+    Future versions may include other scholar databases and queries. \n
+    Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information, commentaries or suggestions."),
   
   # p("The main objective of SESNeuroscienceRefs is to provide updated information on
   #   recent scholar publications related to the field of SES and Neuroscience studies.
