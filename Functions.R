@@ -1,3 +1,8 @@
+require(tidyverse)
+require(purr)
+require(easyPubMed)
+require(XML)
+require(stringi)
 
 ### Function to query
 
