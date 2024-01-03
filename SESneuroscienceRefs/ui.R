@@ -23,10 +23,6 @@ ui <- fluidPage(
     Future versions may include other scholar databases and queries. \n
     Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information, commentaries or suggestions."),
   
-  # p("The main objective of SESNeuroscienceRefs is to provide updated information on
-  #   recent scholar publications related to the field of SES and Neuroscience studies.
-  #   Please refer to the [GitHub repo](https://github.com/FedeGiovannetti/SESNeuroscienceRefs) for more information."),
-  
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
     
@@ -120,7 +116,8 @@ ui <- fluidPage(
     
     
     h6("v0.1.0"),
-    h6("Please cite as: ")
+    h6(markdown("Please cite as: Giovannetti, F., & Lipina, S. J. (2024). SESNeuroscienceRefs.
+       Zenodo. [https://doi.org/10.5281/zenodo.10454409](https://doi.org/10.5281/zenodo.10454409)"))
 
   ),
   
