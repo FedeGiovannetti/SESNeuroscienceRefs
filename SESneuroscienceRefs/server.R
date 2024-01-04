@@ -14,7 +14,7 @@ server <- function(input,output, session) {
     path <- paste("https://raw.githubusercontent.com/FedeGiovannetti/SESNeuroscienceRefs/main/SESneuroscienceRefs/Data/dataset_pubmed_%20",
                   gsub(" ", "%20", gsub('"', '', gsub('\\*', '', input$query))),
                   "%20.csv", sep = "")
-    read.csv(url(path))
+    read.csv(url(path), fileEncoding = "latin1")
   })
   
   reference <- reactive({
@@ -26,24 +26,42 @@ server <- function(input,output, session) {
   
   # Dataset downloaders 
   
+  # output$downloaddata <- downloadHandler(
+  #   
+  #   
+  #   filename = function() {
+  #     paste("dataset_pubmed-", gsub('\\*', '', input$query), Sys.Date(), input$dataextension, sep="")
+  #   },
+  #   content = function(file) {
+  #     
+  #     
+  #     extensionlist = list(
+  #       .xlsx =   write.xlsx(dataset() %>% 
+  #                              select(title), file),
+  #       .csv  = write.csv(dataset(), file, row.names = F))
+  #     
+  #     extensionlist$input$dataextension
+  #     
+  #     
+  #   }
+  # )
+  
   output$downloaddata <- downloadHandler(
-    
-    
     filename = function() {
-      paste("dataset_pubmed-", gsub('\\*', '', input$query), Sys.Date(), input$dataextension, sep="")
+      paste("dataset_pubmed", input$query, Sys.Date(), input$dataextension, sep="")
     },
     content = function(file) {
-      
-      
-      extensionlist = list(
-        .xlsx =   write.xlsx(dataset(), file),
-        .csv  = write.csv(dataset(), file, row.names = F))
-      
-      extensionlist$input$dataextension
-      
-      
+      dataset <- dataset()  
+      if (input$dataextension == ".xlsx") {
+        openxlsx::write.xlsx(dataset, file)
+      } else if (input$dataextension == ".csv") {
+        write.csv(dataset, file, row.names = FALSE)
+      } else {
+        stop("Invalid file extension. Please choose either '.xlsx' or '.csv'.")
+      }
     }
   )
+  
   
 
   
@@ -118,21 +136,18 @@ server <- function(input,output, session) {
   # Plot data downloader
   
   output$downloadplotdata <- downloadHandler(
-
-
-      filename = function() {
+    filename = function() {
       paste("SESNeuroscienceRefs", input$query, Sys.Date(), input$plotdataextension, sep="")
     },
     content = function(file) {
-
-
-      extensionlist = list(
-      .xlsx =   write.xlsx(grouped_dataset(), file),
-      .csv  = write.csv(grouped_dataset(), file, row.names = F))
-      
-      extensionlist$input$plotdataextension
-
-      
+      dataset <- grouped_dataset()  
+      if (input$plotdataextension == ".xlsx") {
+        openxlsx::write.xlsx(dataset, file)
+      } else if (input$plotdataextension == ".csv") {
+        write.csv(dataset, file, row.names = FALSE)
+      } else {
+        stop("Invalid file extension. Please choose either '.xlsx' or '.csv'.")
+      }
     }
   )
   

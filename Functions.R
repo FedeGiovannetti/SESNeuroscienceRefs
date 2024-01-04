@@ -19,7 +19,7 @@ pubmed_query <- function(query){
   # gc() # Esto es para que no aparezca "elapsed time limit" pero hay que probarlo
   
   epm_dataset <- epm_query(query) %>% 
-    epm_fetch(format = 'xml') %>% 
+    epm_fetch(format = 'xml', api_key = "4467c7b8740f9096dc3d17900119e5c8c808") %>% 
     epm_parse() %>% 
     get_epm_data()
   
@@ -27,7 +27,7 @@ pubmed_query <- function(query){
     
     mutate(across(everything(), ~if_else(nchar(.x) > 32766, NA, .x))) %>% 
     select(pmid, title, authors, abstract, year, month, day, journal, everything())
-    # select(-coi)
+
   
   
   write.csv(epm_dataset, paste("SESneuroscienceRefs/Data/dataset_pubmed_",
