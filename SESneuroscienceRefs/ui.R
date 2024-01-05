@@ -123,7 +123,7 @@ ui <-
                   selected = "Please select a file extension"),
       
       
-      h6("v0.1.0"),
+      h6("v0.2.0"),
       h6(markdown("Please cite as: Giovannetti, F., & Lipina, S. J. (2024). SESNeuroscienceRefs.
          Zenodo. [https://doi.org/10.5281/zenodo.10454409](https://doi.org/10.5281/zenodo.10454409)"))
 
