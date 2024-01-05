@@ -16,6 +16,7 @@ jobs:
             any::devtools
             any::tidyverse
             any::rcrossref
+            any::XML
 
       - name: Install EasyPubmed from Github
         env:

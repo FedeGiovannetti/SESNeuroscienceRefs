@@ -5,6 +5,6 @@ account: fedegiova
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10847477
-bundleId: 8105178
+bundleId: 8112681
 url: https://fedegiovannetti.shinyapps.io/sesneurosciencerefs/
 version: 1

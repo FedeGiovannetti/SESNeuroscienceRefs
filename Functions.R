@@ -1,9 +1,3 @@
-require(tidyverse)
-require(purr)
-require(easyPubMed)
-require(XML)
-require(stringi)
-
 ### Function to query
 
 pubmed_query <- function(query){
@@ -14,7 +8,6 @@ pubmed_query <- function(query){
   require(tidyverse)
   require(easyPubMed)
   require(XML)
-  require(stringi)
   
   # gc() # Esto es para que no aparezca "elapsed time limit" pero hay que probarlo
   
